@@ -1,0 +1,8 @@
+def createMatcher(method,crossCheck):
+    "Create and return a Matcher Object"
+    
+    if method == 'sift' or method == 'surf':
+        bf = cv2.BFMatcher(cv2.NORM_L2, crossCheck=crossCheck)
+    elif method == 'orb' or method == 'brisk':
+        bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=crossCheck)
+    return bf
