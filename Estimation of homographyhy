@@ -1,0 +1,12 @@
+# Apply panorama correction
+width = trainImg.shape[1] + queryImg.shape[1]
+height = trainImg.shape[0] + queryImg.shape[0]
+
+result = cv2.warpPerspective(trainImg, H, (width, height))
+result[0:queryImg.shape[0], 0:queryImg.shape[1]] = queryImg
+
+plt.figure(figsize=(20,10))
+plt.imshow(result)
+
+plt.axis('off')
+plt.show()
